@@ -4,12 +4,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint-django = "*"
 
 [packages]
 django = "*"
 djangorestframework = "*"
 djoser = "*"
 djangorestframework-simplejwt = "*"
+django-dotenv = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.7"
