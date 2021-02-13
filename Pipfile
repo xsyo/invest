@@ -13,6 +13,10 @@ djoser = "*"
 djangorestframework-simplejwt = "*"
 django-dotenv = "*"
 drf-yasg = "*"
+celery = "*"
+django-redis = "*"
+django-celery-beat = "*"
+django-celery-results = "*"
 
 [requires]
 python_version = "3.7"
