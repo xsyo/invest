@@ -47,4 +47,5 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
 
     path('packages/', include('packages.urls')),
+    path('transactions/', include('transactions.urls')),
 ]
