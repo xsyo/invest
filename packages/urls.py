@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import (
                         PackageListCreateAPIView, 
-                        PackageRetrieveUpdateDestroyAPIView,
+                        #PackageRetrieveUpdateDestroyAPIView,
                         JournalListAPIView
                     )
 
@@ -11,5 +11,5 @@ from .views import (
 urlpatterns = [
     path('', PackageListCreateAPIView.as_view(), name='packages_list'),
     path('journal/', JournalListAPIView.as_view(), name='journal'),
-    path('<int:pk>/', PackageRetrieveUpdateDestroyAPIView.as_view(), name='packages_rud'),
+    #path('<int:pk>/', PackageRetrieveUpdateDestroyAPIView.as_view(), name='packages_rud'),
 ]

@@ -31,9 +31,11 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'packages.apps.PackagesConfig',
     'transactions.apps.TransactionsConfig',
+    'my_admin.apps.MyAdminConfig',
 
     # Third party apps
     'rest_framework',
+    'django_filters',
     'djoser',
     'drf_yasg',
     'django_celery_beat',
@@ -134,6 +136,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 SIMPLE_JWT = {

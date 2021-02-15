@@ -16,10 +16,10 @@ class PackageListCreateAPIView(generics.ListCreateAPIView):
 
 
 
-class PackageRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Package.objects.all()
-    serializer_class = PackageSerializer
-    permission_classes = (IsAdminUser,)
+# class PackageRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Package.objects.all()
+#     serializer_class = PackageSerializer
+#     permission_classes = (IsAdminUser,)
 
 
 

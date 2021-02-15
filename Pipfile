@@ -17,6 +17,7 @@ celery = "*"
 django-redis = "*"
 django-celery-beat = "*"
 django-celery-results = "*"
+django-filter = "*"
 
 [requires]
 python_version = "3.7"

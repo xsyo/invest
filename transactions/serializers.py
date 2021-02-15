@@ -1,6 +1,5 @@
 from decimal import Decimal
 
-
 from rest_framework import serializers
 from django.db.models import Sum
 
@@ -20,7 +19,6 @@ class TransactionForWithdrawalSerializer(serializers.ModelSerializer):
     def validate_cart(self, value):
 
         str_value = str(value)
-
         if len(str_value) == 16:
             return value
         else:
@@ -41,4 +39,3 @@ class TransactionForWithdrawalSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Insufficient funds")
 
         return value
-    

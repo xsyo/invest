@@ -3,6 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from .models import Transaction
 from .serializers import TransactionForWithdrawalSerializer
+from .pagination import TransactionPagination
 
 
 
@@ -18,3 +19,14 @@ class WithdrawalRequestAPIView(generics.CreateAPIView):
             transaction_type=Transaction.TYPE_WITHDRAWAL,
             status=Transaction.STATUS_PENDING
         )
+
+
+class TransactionListAPIView(generics.ListAPIView):
+
+    serializer_class = TransactionForWithdrawalSerializer
+    permission_classes = (IsAuthenticated,)
+    pagination_class = TransactionPagination
+    filterset_fields = ['transaction_type', 'status']
+
+    def get_queryset(self):
+        return self.request.user.my_transactions.all()

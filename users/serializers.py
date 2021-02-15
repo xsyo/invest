@@ -16,3 +16,4 @@ class UserSerializer(djoser_serializers.UserSerializer):
             'balance',
         )
         read_only_fields = (settings.LOGIN_FIELD, 'is_active', 'balance')
+        ref_name = 'User 1'
