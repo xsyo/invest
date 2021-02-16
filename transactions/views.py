@@ -10,6 +10,7 @@ from .pagination import TransactionPagination
 class WithdrawalRequestAPIView(generics.CreateAPIView):
     """
         Endpoint для заявки на снятие баланса
+        
         Разрешение: Авторизация
     """
 
@@ -28,6 +29,7 @@ class WithdrawalRequestAPIView(generics.CreateAPIView):
 class TransactionListAPIView(generics.ListAPIView):
     """
         Список совершенных транзакции
+
         Можно фильтровать по статусу и по типу
 
         Разрешение: Авторизация

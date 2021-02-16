@@ -7,7 +7,6 @@ from .models import User
 class UserSerializer(djoser_serializers.UserSerializer):
 
     class Meta:
-
         model = User
         fields = tuple(User.REQUIRED_FIELDS) + (
             settings.USER_ID_FIELD,

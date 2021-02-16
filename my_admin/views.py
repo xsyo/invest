@@ -19,6 +19,8 @@ from .serializers import TransactionUpdateSerializer
 
 class TransactionListAPIView(generics.ListAPIView):
     '''
+        Транзакций
+
         Список всех транзакций
         Разрешение: Админ
     '''
@@ -34,6 +36,7 @@ class TransactionListAPIView(generics.ListAPIView):
 class TransactionRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
     '''
         Endpoint для подтверждения запроса на снятие денег
+
         Разрешение: Админ
     '''
 
@@ -52,6 +55,8 @@ class TransactionRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
 
 class PackageRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     '''
+        Пакет
+
         Просмотр или редактирование пакета
         Разрешение: Админ
     '''
@@ -65,6 +70,7 @@ class PackageRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView)
 class JournalListAPIView(generics.ListAPIView):
     '''
         Журнал
+
         Разрешение: Админ
     '''
 
@@ -77,6 +83,7 @@ class JournalListAPIView(generics.ListAPIView):
 class UserListAPIView(generics.ListAPIView):
     '''
         Список пользователей
+
         Разрешение: Админ
     '''
 

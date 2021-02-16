@@ -32,6 +32,7 @@ class PackageListCreateAPIView(generics.ListCreateAPIView):
 class JournalListAPIView(generics.ListAPIView):
     '''
         Журнал
+        
         Пользователь может смотреть только свой журнал
     '''
 
