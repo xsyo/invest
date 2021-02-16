@@ -9,6 +9,12 @@ from .pagination import JournalPagination
 
 
 class PackageListCreateAPIView(generics.ListCreateAPIView):
+    """
+        Список пакетов
+
+        Может смотреть каждый
+        Добавлять новые пакеты только админ
+    """
 
     queryset = Package.objects.all()
     serializer_class = PackageSerializer

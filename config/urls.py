@@ -13,40 +13,47 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path, include, re_path
-
-from rest_framework import permissions
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
+from django.conf import settings
 
 
-
-schema_view = get_schema_view(
-    openapi.Info(
-        title="Shop API",
-        default_version='v1',
-    ),
-    public=True,
-    permission_classes=(permissions.AllowAny,),
-)
 
 urlpatterns = [
-    # Документация
-    re_path(r'^doc(?P<format>\.json|\.yaml)$',
-            schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('doc/', schema_view.with_ui('swagger', cache_timeout=0),
-         name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-
-    path('admin/', admin.site.urls),
-
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.jwt')),
 
     path('api/admin/', include('my_admin.urls')),
-    path('packages/', include('packages.urls')),
-    path('transactions/', include('transactions.urls')),
+    path('api/packages/', include('packages.urls')),
+    path('api/transactions/', include('transactions.urls')),
 ]
+
+
+if settings.DEBUG:
+    from django.contrib import admin
+    from rest_framework import permissions
+    from drf_yasg.views import get_schema_view
+    from drf_yasg import openapi
+
+    schema_view = get_schema_view(
+        openapi.Info(
+            title="Shop API",
+            default_version='v1',
+        ),
+        public=True,
+        permission_classes=(permissions.AllowAny,),
+    )
+
+    urlpatterns += [
+        # Документация
+        re_path(r'^doc(?P<format>\.json|\.yaml)$',
+                schema_view.without_ui(cache_timeout=0), name='schema-json'),
+        path('doc/', schema_view.with_ui('swagger', cache_timeout=0),
+            name='schema-swagger-ui'),
+        path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+
+        # Авторизация
+        path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+        # Админка по умолчанию
+        path('admin/', admin.site.urls),
+    ]

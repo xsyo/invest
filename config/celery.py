@@ -23,7 +23,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'update_balance': {
         'task': 'packages.tasks.update_balance',
-        'schedule': 15.0
+        'schedule': 60 * 60 * 24
     }
 }
 
