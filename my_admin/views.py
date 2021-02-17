@@ -40,7 +40,8 @@ class TransactionRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
         Разрешение: Админ
     '''
 
-    queryset = Transaction.objects.filter(status=Transaction.STATUS_PENDING)
+    queryset = Transaction.objects.filter(status=Transaction.STATUS_PENDING, 
+                                        transaction_type=Transaction.TYPE_WITHDRAWAL)
     serializer_class = TransactionUpdateSerializer
     permission_classes = (IsAdminUser,)
 
