@@ -18,6 +18,8 @@ django-redis = "*"
 django-celery-beat = "*"
 django-celery-results = "*"
 django-filter = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
