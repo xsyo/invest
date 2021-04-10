@@ -153,6 +153,7 @@ DJOSER = {
     'TOKEN_MODEL': None,
     'SERIALIZERS': {
         'current_user': 'users.serializers.UserSerializer',
+        'user_create': 'users.serializers.CreateUserSerializer',
     },
 }
 
@@ -170,3 +171,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+
+
+CODE_SEPARATOR = '#|#'

@@ -13,6 +13,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(_('first name'), max_length=150)
     last_name = models.CharField(_('last name'), max_length=150)
 
+    inviting = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='invited')
+
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,

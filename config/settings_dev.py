@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -14,7 +15,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['79.143.31.134', 'localhost']
 
 
 # Application definition
@@ -152,6 +153,8 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=2),
 }
 
 DJOSER = {
@@ -163,6 +166,7 @@ DJOSER = {
     #'TOKEN_MODEL': None,
     'SERIALIZERS': {
         'current_user': 'users.serializers.UserSerializer',
+        'user_create': 'users.serializers.CreateUserSerializer',
     },
 }
 
@@ -181,10 +185,13 @@ CELERY_BROKER_URL = 'redis://localhost:6379//0'
 CELERY_RESULT_BACKEND = 'django-db'
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+
+
+CODE_SEPARATOR = '#|#'
