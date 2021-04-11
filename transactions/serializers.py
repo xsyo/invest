@@ -18,8 +18,7 @@ class TransactionForWithdrawalSerializer(serializers.ModelSerializer):
 
     def validate_cart(self, value):
 
-        str_value = str(value)
-        if len(str_value) == 16:
+        if len(value) == 16:
             return value
         else:
             raise serializers.ValidationError("Wrong card number")

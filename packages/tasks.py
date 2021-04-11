@@ -10,9 +10,9 @@ def update_balance():
     '''
         Задание для обновление баланса пользователей
     '''
-
+    packages = Package.objects.all()
     for user in User.objects.all():
-        for package in Package.objects.all():
+        for package in packages:
             max_val = package.max_value if package.max_value else float('inf')
 
             if package.min_value < user.balance and user.balance < max_val:
