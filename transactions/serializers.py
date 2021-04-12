@@ -21,7 +21,7 @@ class TransactionForWithdrawalSerializer(serializers.ModelSerializer):
         if len(value) == 16:
             return value
         else:
-            raise serializers.ValidationError("Wrong card number")
+            raise serializers.ValidationError("Неверный номер карты")
     
     
     def validate_amount(self, value):
@@ -35,6 +35,6 @@ class TransactionForWithdrawalSerializer(serializers.ModelSerializer):
         user_amount_sum = user_amount_sum if user_amount_sum else 0
 
         if user.balance - user_amount_sum < Decimal(value):
-            raise serializers.ValidationError("Insufficient funds")
+            raise serializers.ValidationError("Недостаточно средств")
 
         return value

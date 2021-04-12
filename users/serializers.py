@@ -22,7 +22,7 @@ class UserSerializer(djoser_serializers.UserSerializer):
 
 class CreateUserSerializer(djoser_serializers.UserCreateSerializer):
 
-    inviting_code = serializers.CharField(write_only=True)
+    inviting_code = serializers.CharField(write_only=True, required=False, default=None)
 
     class Meta(djoser_serializers.UserCreateSerializer.Meta):
         fields = djoser_serializers.UserCreateSerializer.Meta.fields + ('inviting_code',)

@@ -28,6 +28,6 @@ class Transaction(models.Model):
     transaction_type = models.CharField(max_length=2, choices=TYPE_CHOICES)
     status = models.CharField(max_length=2, choices=STATUS_CHOICES, default=STATUS_PENDING)
     amount = models.DecimalField(max_digits=13, decimal_places=2)
-    cart = models.CharField(max_length=17, validators=[RegexValidator('^\d+$/', message='Строка должна состоять только из цифр')])
+    cart = models.CharField(max_length=17)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
